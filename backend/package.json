@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --watch './dist/*.js' --exec 'ts-node ./src/app.ts' -e ts -p 5000",
+    "build": "tsc"
+  },
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
