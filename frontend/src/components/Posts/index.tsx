@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { CircularProgress, Grid } from '@material-ui/core';
 import useStyles from './styles';
 
 export default function Posts() {
