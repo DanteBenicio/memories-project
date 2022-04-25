@@ -42,10 +42,12 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
       const updatedPost = updatePost(currentId, postData);
 
       await updatedPost(dispatch);
+      clear();
     } else {
       const sendPost = createPost(postData);
 
       await sendPost(dispatch);
+      clear();
     }
   }
 
