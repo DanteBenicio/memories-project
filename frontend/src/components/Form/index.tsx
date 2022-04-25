@@ -42,21 +42,21 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
       const updatedPost = updatePost(currentId, postData);
 
       await updatedPost(dispatch);
-      clear();
     } else {
       const sendPost = createPost(postData);
 
       await sendPost(dispatch);
-      clear();
     }
+
+    clear();
   }
 
   return (
     <Paper className={paper}>
       <form className={`${root} ${form}`} onSubmit={handleSubmit} autoComplete="off">
-        <Typography variant="h6">Creating a Memory</Typography>
-        <TextField
         <Typography variant="h6">{currentId ? 'Editing' : 'Creating'} a Memory</Typography>
+        <TextField
+          name="creator"
           variant="outlined"
           label="Creator"
           fullWidth
