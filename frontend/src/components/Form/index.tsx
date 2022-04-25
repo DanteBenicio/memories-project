@@ -1,6 +1,51 @@
-import React from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
+import FileBase from 'react-file-base64';
+import {
+  TextField, Button, Typography, Paper,
+} from '@material-ui/core';
 
-export default function Form() {
+import { useDispatch, useSelector } from 'react-redux';
+import useStyles from './styles';
+import { createPost, updatePost } from '../../store/actions/posts';
+import { FormProps } from '../../types/Form';
+
+export default function Form({ currentId, setCurrentId }: FormProps) {
+  // eslint-disable-next-line max-len
+  const post = useSelector((state: any) => (currentId ? state.posts.find(post => post._id === currentId) : null));
+  const dispatch = useDispatch();
+  const [postData, setPostData] = useState({
+    creator: '',
+    title: '',
+    message: '',
+    tags: '',
+    selectedFile: '',
+  });
+  const {
+    buttonSubmit, fileInput, form, paper, root,
+  } = useStyles();
+
+  useEffect(() => {
+    if (post) setPostData(post);
+  }, [post]);
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+
+    if (currentId) {
+      const updatedPost = updatePost(currentId, postData);
+
+      await updatedPost(dispatch);
+    } else {
+      const sendPost = createPost(postData);
+
+      await sendPost(dispatch);
+    }
+  }
+
+  function clear() {
+
+  }
+
   return (
     <Paper className={paper}>
       <form className={`${root} ${form}`} onSubmit={handleSubmit} autoComplete="off">
