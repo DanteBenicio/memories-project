@@ -56,7 +56,7 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
       <form className={`${root} ${form}`} onSubmit={handleSubmit} autoComplete="off">
         <Typography variant="h6">Creating a Memory</Typography>
         <TextField
-          name="creator"
+        <Typography variant="h6">{currentId ? 'Editing' : 'Creating'} a Memory</Typography>
           variant="outlined"
           label="Creator"
           fullWidth
