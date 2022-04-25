@@ -28,6 +28,13 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
     if (post) setPostData(post);
   }, [post]);
 
+  function clear() {
+    setCurrentId(null);
+    setPostData({
+      creator: '', title: '', message: '', tags: '', selectedFile: '',
+    });
+  }
+
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
@@ -40,10 +47,6 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
 
       await sendPost(dispatch);
     }
-  }
-
-  function clear() {
-
   }
 
   return (
