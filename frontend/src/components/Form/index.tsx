@@ -13,7 +13,7 @@ import { IPost } from '../../types/Post';
 
 export default function Form({ currentId, setCurrentId }: FormProps) {
   // eslint-disable-next-line max-len
-  const post = useSelector((state: any) => (currentId ? state.posts.find(post => post._id === currentId) : null));
+  const post = useSelector((state: IState) => (currentId ? state.posts.find((post: IPost) => post._id === currentId) : null));
   const dispatch = useDispatch();
   const [postData, setPostData] = useState({
     creator: '',
