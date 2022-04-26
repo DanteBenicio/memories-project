@@ -49,11 +49,12 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
     e.preventDefault();
 
     if (currentId) {
-      const updatedPost = updatePost(currentId, postData);
+      // eslint-disable-next-line max-len
+      const updatedPost = updatePost(currentId, { ...postData, tags: postData.tags[0].split(' ') });
 
       await updatedPost(dispatch);
     } else {
-      const sendPost = createPost(postData);
+      const sendPost = createPost({ ...postData, tags: postData.tags[0].split(' ') });
 
       await sendPost(dispatch);
     }
