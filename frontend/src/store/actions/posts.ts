@@ -1,6 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import { Dispatch } from 'redux';
 import * as api from '../../api';
+import {
+  FETCH_ALL, CREATE, UPDATE, DELETE, LIKE,
+} from '../../constants/action-types';
 
 export const getPosts = () => async (dispatch: Dispatch) => {
   try {
