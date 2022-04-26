@@ -96,8 +96,8 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
           variant="outlined"
           label="Tags"
           fullWidth
-          value={postData.tags}
-          onChange={e => setPostData({ ...postData, tags: e.target.value })}
+          value={postData.tags.join(' ')}
+          onChange={e => setPostData({ ...postData, tags: [e.target.value] })}
         />
         <div className={fileInput}>
           <FileBase
