@@ -19,7 +19,7 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
     creator: '',
     title: '',
     message: '',
-    tags: '',
+    tags: [],
     selectedFile: '',
   });
   const {
@@ -33,7 +33,7 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
   function clear() {
     setCurrentId(null);
     setPostData({
-      creator: '', title: '', message: '', tags: '', selectedFile: '',
+      creator: '', title: '', message: '', tags: [], selectedFile: '',
     });
   }
 
