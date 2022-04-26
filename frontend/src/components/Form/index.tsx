@@ -39,7 +39,7 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
   }, [post]);
 
   function clear() {
-    setCurrentId(null);
+    setCurrentId('');
     setPostData({
       creator: '', title: '', message: '', tags: [], selectedFile: '',
     });
