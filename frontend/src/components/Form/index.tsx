@@ -27,7 +27,15 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
   } = useStyles();
 
   useEffect(() => {
-    if (post) setPostData(post);
+    if (post) {
+      setPostData({
+        creator: post.creator,
+        title: post.title,
+        message: post.message,
+        tags: post.tags,
+        selectedFile: post.selectedFile,
+      });
+    }
   }, [post]);
 
   function clear() {
