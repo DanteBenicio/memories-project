@@ -1,4 +1,5 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+/* eslint-disable no-shadow */
+import { FormEvent, useEffect, useState } from 'react';
 import FileBase from 'react-file-base64';
 import {
   TextField, Button, Typography, Paper,
@@ -102,7 +103,7 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
           <FileBase
             type="file"
             multiple={false}
-            onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}
+            onDone={(prop: any) => setPostData({ ...postData, selectedFile: prop.base64 })}
           />
         </div>
         <Button
