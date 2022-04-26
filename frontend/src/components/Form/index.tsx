@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './styles';
 import { createPost, updatePost } from '../../store/actions/posts';
 import { FormProps } from '../../types/Form';
+import { IState } from '../../types/State';
+import { IPost } from '../../types/Post';
 
 export default function Form({ currentId, setCurrentId }: FormProps) {
   // eslint-disable-next-line max-len
