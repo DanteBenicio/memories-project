@@ -15,7 +15,7 @@ export default function Form({ currentId, setCurrentId }: FormProps) {
   // eslint-disable-next-line max-len
   const post = useSelector((state: IState) => (currentId ? state.posts.find((post: IPost) => post._id === currentId) : null));
   const dispatch = useDispatch();
-  const [postData, setPostData] = useState({
+  const [postData, setPostData] = useState<Pick<IPost, 'creator' | 'title' | 'message' | 'tags' | 'selectedFile'>>({
     creator: '',
     title: '',
     message: '',
