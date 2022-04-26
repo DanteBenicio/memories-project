@@ -1,7 +1,7 @@
 const FETCH_ALL = 'FETCH_ALL';
 const CREATE = 'CREATE';
 
-export default (posts = [], action: any) => {
+export default (posts: IPost[] = [], action: any) => {
   switch (action.type) {
     case FETCH_ALL:
       return action.payload;
