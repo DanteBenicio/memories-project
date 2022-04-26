@@ -5,8 +5,9 @@ import Post from './Post';
 import { PostsProps } from '../../types/Posts';
 import { IState } from '../../types/State';
 
-export default function Posts() {
-  const posts = useSelector((state: any) => state.posts);
+export default function Posts({ setCurrentId }: PostsProps) {
+  // eslint-disable-next-line max-len
+  const { posts } = useSelector((state: IState) => state);
   const classes = useStyles();
 
   return (
