@@ -15,6 +15,11 @@ export default makeStyles((theme) => ({
     fontSize: 'clamp(2.5rem, 5vw, 3.75rem)',
   },
   image: {
-    marginLeft: '15px',
+    marginLeft: '0.9375rem',
+  },
+  [theme.breakpoints.down('sm')]: {
+    mainContainer: {
+      flexDirection: 'column-reverse',
+    },
   },
 }));
