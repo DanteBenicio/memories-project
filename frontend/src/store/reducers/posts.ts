@@ -1,5 +1,8 @@
-const FETCH_ALL = 'FETCH_ALL';
-const CREATE = 'CREATE';
+/* eslint-disable no-underscore-dangle */
+import { IPost } from '../../types/Post';
+import {
+  CREATE, DELETE, UPDATE, FETCH_ALL, LIKE,
+} from '../../constants/action-types';
 
 export default (posts: IPost[] = [], action: any) => {
   switch (action.type) {
