@@ -16,4 +16,4 @@ const postSchema = new Schema({
   }
 })
 
-export const postMessage = model('PostMessage', postSchema)
+export const PostMessage = model('PostMessage', postSchema)
