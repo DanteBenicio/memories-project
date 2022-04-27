@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --watch './dist/*.js' --exec 'ts-node ./src/app.ts' -e ts -p 5001",
-    "build": "tsc"
+    "build": "tsc",
+    "prod": "node ./dist/*.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
