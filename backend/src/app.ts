@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
-import { connectToMongoDB } from './services/mongoose';
 import dotenv from 'dotenv';
 import postRoutes from './routes/posts';
+import { connectToMongoDB } from './services/mongoose';
 
 dotenv.config()
 
