@@ -17,16 +17,12 @@ app.use(route)
 app.use('/posts', postRoutes)
 app.use(cors())
 
-mongoose.connect(process.env.MONGODB_URI!)
-  .then(res => {})
-  .catch(err => console.error(err))
-
-route.get('/', (req: Request, res: Response) => {
-  res.json({
-    message: 'Home'
+connectToMongoDB(process.env.MONGODB_URI!)
+  .then((res) => {
+    app.listen(PORT, () => {
+      console.log('Server is running')
+    })
   })
-})
-
-app.listen(5000, () => {
-  console.log('server is Running...')
-})
+  .catch(error => {
+    console.log(error);
+  })
