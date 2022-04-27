@@ -1,32 +1,27 @@
-import express, {Router, Request, Response} from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
+import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import postRoutes from './routes/posts';
+import { connectToMongoDB } from './services/mongoose';
 
 dotenv.config()
 
 const app = express();
 const route = express.Router()
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
-app.use(bodyParser.json({ limit: "30mb" }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}))
+app.use(cors())
+app.use(express.json({ limit: "30mb" }));
+app.use(express.urlencoded({ limit: "30mb", extended: true}))
 app.use(route)
 app.use('/posts', postRoutes)
-app.use(cors())
 
-mongoose.connect(process.env.MONGODB_URI!)
-  .then(res => {})
-  .catch(err => console.error(err))
-
-route.get('/', (req: Request, res: Response) => {
-  res.json({
-    message: 'Home'
+connectToMongoDB(process.env.MONGODB_URI!)
+  .then((res) => {
+    app.listen(PORT, () => {
+      console.log('Server is running')
+    })
   })
-})
-
-app.listen(5000, () => {
-  console.log('server is Running...')
-})
+  .catch(error => {
+    console.log(error);
+  })
