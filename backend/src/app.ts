@@ -2,6 +2,7 @@ import express, {Router, Request, Response} from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import { connectToMongoDB } from './services/mongoose';
 import dotenv from 'dotenv';
 import postRoutes from './routes/posts';
 
